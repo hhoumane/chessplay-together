@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Board, ChessPiece, Position } from '@/types/chess';
 import { createInitialBoard, isValidMove } from '@/utils/chessUtils';
 import { cn } from '@/lib/utils';
-import { King, Queen, Rook, Bishop, ChevronUp, Crown } from 'lucide-react';
+import { Crown, Diamond, Square, Triangle, Circle, ChevronUp } from 'lucide-react';
 
 const ChessBoard = () => {
   const [board, setBoard] = useState<Board>(createInitialBoard());
@@ -21,15 +21,15 @@ const ChessBoard = () => {
 
     switch (piece.type) {
       case 'king':
-        return <King {...props} />;
-      case 'queen':
-        return <Queen {...props} />;
-      case 'rook':
-        return <Rook {...props} />;
-      case 'bishop':
-        return <Bishop {...props} />;
-      case 'knight':
         return <Crown {...props} />;
+      case 'queen':
+        return <Diamond {...props} />;
+      case 'rook':
+        return <Square {...props} />;
+      case 'bishop':
+        return <Triangle {...props} />;
+      case 'knight':
+        return <Circle {...props} />;
       case 'pawn':
         return <ChevronUp {...props} />;
       default:
